@@ -81,18 +81,32 @@ public:
         return false;
     }
     
-    void showTree(BSTNode* node) {
+    void midOrder(BSTNode* node) {
         if (NULL == node) {
             return ;
         }
         
-        showTree(node->left);
+        midOrder(node->left);
         cout << node->data << endl;
-        showTree(node->right);
+        midOrder(node->right);
+    }
+    
+    void preOrder(BSTNode* node) {
+        if (NULL == node) {
+            return ;
+        }
+        
+        cout << node->data << endl;
+        preOrder(node->left);
+        preOrder(node->right);
     }
     
     void showTree() {
-        showTree(this->root);
+        cout << "midOrder is:" << endl;
+        midOrder(this->root);
+        
+        cout << "preOrder is:" << endl;
+        preOrder(this->root);
     }
 };
 

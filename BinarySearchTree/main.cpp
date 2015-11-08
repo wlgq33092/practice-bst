@@ -24,8 +24,10 @@ int main(int argc, const char * argv[]) {
 //        BSTNode* tn = new BSTNode(data[i]);
         tree.addNode(data[i]);
         cout << "the tree after insert " << data[i] << ":" << endl;
-        tree.showTree();
+//        tree.showTree();
     }
+    
+    tree.showTree();
     
     BSTFind(10, tree);
     BSTFind(9, tree);
