@@ -10,6 +10,7 @@
 #define __BinarySearchTree__bst__
 
 #include <iostream>
+#include <vector>
 
 #include "error.h"
 
@@ -25,13 +26,18 @@ struct BSTNode {
 class BST {
 private:
     BSTNode* root;
+    vector<BSTNode *> nodes;
     
 public:
     BST() : root(NULL) {}
     BST(BSTNode* root) : root(root) {}
     ~BST() {
-//        delete root;
-//        root = NULL;
+        cout << "nodes size is " << nodes.size() << endl;
+        for (int i = 0; i < nodes.size(); i++) {
+            BSTNode* tmp = nodes.back();
+            delete tmp;
+            nodes.pop_back();
+        }
     }
     
     void addNode(int data, BSTNode* node) {
@@ -88,6 +94,7 @@ public:
         
         midOrder(node->left);
         cout << node->data << endl;
+        nodes.push_back(node);
         midOrder(node->right);
     }
     
